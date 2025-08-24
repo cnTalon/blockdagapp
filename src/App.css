@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 .App {
   text-align: center;
 }
@@ -28,11 +30,319 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Page container */
+.app-container {
+  min-height: 100vh;
+  background-color: #f7f7f7;
+  padding: 2rem;
+  color: #333;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+/* Header */
+.header {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Grid layout */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,  minmax(250px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: '20px';
+}
+
+/* Add post button style */
+.btn-primary {
+  background-color: #020202;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  float: right;
+  
+}
+.btn-secondary {
+  background-color: #020202;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  
+}
+
+.btn-primary:hover {
+  background-color: #f346e5;
+}
+
+.btn-secondary:hover {
+  background-color: #545b62;
+}
+
+/* Message Styling */
+.message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+/* Responsive Design */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+    padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .form-actions {
+    flex-direction: column;
   }
+}
+
+/* Modal Overlay */
+.modal-pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0,5;
+  z-index: 1;
+}
+
+/* Modal Content */
+.modal-container {
+  border-radius: 8px;
+  padding: 30px;
+  width: 90%;
+  max-width: 580px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  background: white;
+}
+.modal-content {
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  background: white;
+}
+
+/* Modal Header */
+.modal-header {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+/* Form Style */
+.add-post-form {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-content label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-content input,
+.form-group textarea {
+  padding: 10px;
+  border: 10px solid #0b0b0b;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  width: 460px;
+  height: 200px;
+  display:flex;
+
+}
+
+.form-content input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  border: 10px;
+}
+
+.form-content textarea {
+  resize: vertical;
+  min-height: 200px;
+  min-width: 460px;
+  border:solid;
+}
+
+
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/*Place holders - Dashboard*/
+.blanks{
+  background: #dfdfdf;
+  border: 2px dashed #ccc;     
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #999;                 
+  text-align: left;
+  font-style: italic;
+  
+}
+.blank-chart {
+  background: linear-gradient(135deg, #f4f4f4, #fafafa);
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  color: #bbb;
+  font-weight: bold;
+  height: 200px;
+}
+
+.blanks:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-color: #bbb;          /* slightly darker on hover */
+}
+
+/*Image*/
+.image{
+  background: #dfdfdf;
+  border: 2px dashed #ccc;     
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #999;                 
+  text-align: left;
+  font-style: italic
+}
+
+/*Post*/
+.username {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.content {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.75rem;
+}
+
+.upvotes{
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.75rem;
+}
+.blockID {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.75rem;
+  font-weight: bold;
+}
+.region {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.75rem;
+  font-weight: bold;
+  text-align: left;
+  justify-content: left;
+}
+.timestamp {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.75rem;
+  font-weight: bold;
+  text-align: left;
+  justify-content: left;
+}
+
+.displayArea {
+  display: none;
+}
+
+.displayArea.show {
+  display: block;
+}
+
+.content-div {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-top: 10px;
 }
